@@ -1,0 +1,42 @@
+SUMMARY = "Machine specific systemd units"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+PR = "r23"
+inherit systemd
+
+NATIVE_SYSTEMD_SUPPORT = "1"
+ALLOW_EMPTY_${PN} = "1"
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+
+# Don't generate empty -dbg package
+PACKAGES = "${PN}"
+
+SRC_URI = " \
+    file://10-eth0.network \
+    file://10-eth1.network \
+    file://Bridge.network \
+    file://Bridge.netdev \
+    ${@bb.utils.contains("MACHINE_FEATURES", "can", "file://can0.service", "", d)} \
+"
+
+SYSTEMD_SERVICE_${PN} = " \
+    ${@bb.utils.contains("MACHINE_FEATURES", "can", "can0.service", "", d)} \
+"
+
+do_install() {
+    install -d ${D}${systemd_unitdir}/network/
+    for file in $(find ${WORKDIR} -maxdepth 1 -type f -name *.net*); do
+        install -m 0644 "$file" ${D}${systemd_unitdir}/network/
+    done
+    install -d ${D}${systemd_system_unitdir}/
+    for file in $(find ${WORKDIR} -maxdepth 1 -type f -name *.service); do
+        install -m 0644 "$file" ${D}${systemd_system_unitdir}/
+    done
+}
+# Ship directory "/lib/systemd/system" explicitly in case it is empty. Avoids:
+#     QA Issue: systemd-machine-units: Files/directories were installed but not shipped
+FILES_${PN}_append = " \
+    ${systemd_system_unitdir} \
+    ${systemd_unitdir}/network/ \
+"
