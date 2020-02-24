@@ -10,31 +10,32 @@ inherit distro_features_check
 
 
 IMAGE_INSTALL += "\
-    packagegroup-base 		\
-     bridge-utils 			\
-     pps-tools 				\
-     ptpd 					\
-     net-tools 				\
-     dune 					\
-     chrony					\ 
-     gpsd 					\
-     monit					\
-     screen 				\
-     opkg					\
-     socat 					\
-     erlang 				\
-     erlang-sasl 			\
-     erlang-stdlib 			\
-     erlang-kernel 			\
-     erlang-erts 			\
-     erlang-crypto			\
-     usbutils				\
-     ethtool				\
-     fuse-exfat 			\
-     bash 					\
-     e2fsprogs 				\
-     exfat-utils			\
-     iproute2				\
+     packagegroup-base 		\
+     bridge-utils 		\
+     pps-tools 			\
+     ptpd 			\
+     net-tools 			\
+     dune 			\
+     chrony			\ 
+     gpsd 			\
+     monit			\
+     screen 			\
+     opkg			\
+     socat 			\
+     erlang 			\
+     erlang-sasl 		\
+     erlang-stdlib 		\
+     erlang-kernel 		\
+     erlang-erts 		\
+     erlang-crypto		\
+     usbutils			\
+     ethtool			\
+     fuse-exfat 		\
+     bash 			\
+     e2fsprogs 			\
+     exfat-utils		\
+     iproute2			\
+     ${@bb.utils.contains("COMBINED_FEATURES", "3g", "packagegroup-3g", "", d)} \
 "
 
 IMAGE_INSTALL_remove = "packagegroup-update"
