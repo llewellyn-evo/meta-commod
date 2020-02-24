@@ -11,7 +11,6 @@ inherit distro_features_check
 
 IMAGE_INSTALL += "\
     packagegroup-base 		\
-    packagegroup-3g			\
      bridge-utils 			\
      pps-tools 				\
      ptpd 					\
@@ -29,4 +28,11 @@ IMAGE_INSTALL += "\
      erlang-kernel 			\
      erlang-erts 			\
      erlang-crypto			\
+     usbutils				\
+     ethtool				\
+     fuse-exfat 			\
+     bash 					\
+     e2fsprogs 				\
+     exfat-utils			\
+     iproute2				\
 "
