@@ -18,7 +18,7 @@
 &iomuxc_snvs {
 	pinctrl_gpioleds_som: gpioledssomgrp {
 		fsl,pins = <
-			MX6ULL_PAD_SNVS_TAMPER4__GPIO5_IO04	0x0b0b0
+			MX6ULL_PAD_SNVS_TAMPER4__GPIO5_IO04			0x0b0b0
 		>;
 	};
 };

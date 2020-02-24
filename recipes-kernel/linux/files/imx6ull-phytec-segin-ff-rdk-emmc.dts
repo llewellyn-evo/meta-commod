@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 /*
  * Copyright (C) 2018 PHYTEC Messtechnik GmbH
- * Author: Stefan Riedmueller <s.riedmueller@phytec.de>
+ * Author:  Riedmueller <s.riedmueller@phytec.de>
  */
 
 /dts-v1/;
@@ -36,10 +36,6 @@
 	status = "okay";
 };
 
-&i2c_rtc {
-	status = "okay";
-};
-
 &reg_can1_en {
 	status = "okay";
 };
@@ -53,14 +49,6 @@
 };
 
 &uart4 {
-	status = "okay";
-};
-
-&uart5 {
-	status = "okay";
-};
-
-&uart6 {
 	status = "okay";
 };
 
@@ -80,10 +68,26 @@
 	status = "okay";
 };
 
+&pwm3 {
+	status = "okay";
+};
+
 &pwm4 {
 	status = "okay";
 };
 
 &pps0{
 	status = "okay";	
+};
+
+&usbotg1{
+	status = "okay";
+};
+
+&i2c_light {
+	status = "okay";
+};
+
+&i2c_dac {
+	status = "okay";
 };
