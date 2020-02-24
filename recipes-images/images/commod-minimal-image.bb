@@ -36,3 +36,5 @@ IMAGE_INSTALL += "\
      exfat-utils			\
      iproute2				\
 "
+
+IMAGE_INSTALL_remove = "packagegroup-update"
