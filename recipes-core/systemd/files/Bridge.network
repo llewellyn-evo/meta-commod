@@ -2,5 +2,5 @@
 Name=br0
 
 [Network]
-Address=192.168.3.11/16
-Gateway=192.168.3.10
+Address=10.0.0.2/24
+Gateway=10.0.0.1
