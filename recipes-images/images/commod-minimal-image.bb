@@ -8,9 +8,9 @@ LICENSE = "MIT"
 
 inherit distro_features_check
 
-
 IMAGE_INSTALL += "\
      packagegroup-base 		\
+     packagegroup-3g            \
      bridge-utils 		\
      pps-tools 			\
      ptpd 			\
@@ -35,7 +35,6 @@ IMAGE_INSTALL += "\
      e2fsprogs 			\
      exfat-utils		\
      iproute2			\
-     ${@bb.utils.contains("COMBINED_FEATURES", "3g", "packagegroup-3g", "", d)} \
 "
 
 IMAGE_INSTALL_remove = "packagegroup-update"
