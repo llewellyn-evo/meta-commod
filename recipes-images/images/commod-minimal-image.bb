@@ -8,6 +8,9 @@ LICENSE = "MIT"
 
 inherit distro_features_check
 
+EXTRA_IMAGE_FEATURES += "read-only-rootfs"
+
+
 IMAGE_INSTALL += "\
      packagegroup-base 		\
      packagegroup-3g            \
