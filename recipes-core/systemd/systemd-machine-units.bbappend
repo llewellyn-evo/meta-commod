@@ -18,6 +18,7 @@ SRC_URI = " \
     file://Bridge.network \
     file://Bridge.netdev \
     ${@bb.utils.contains("MACHINE_FEATURES", "can", "file://can0.service", "", d)} \
+    file://InitGPIO.service \
 "
 
 SYSTEMD_SERVICE_${PN} = " \
@@ -34,9 +35,10 @@ do_install() {
         install -m 0644 "$file" ${D}${systemd_system_unitdir}/
     done
 }
+
 # Ship directory "/lib/systemd/system" explicitly in case it is empty. Avoids:
 #     QA Issue: systemd-machine-units: Files/directories were installed but not shipped
 FILES_${PN}_append = " \
-    ${systemd_system_unitdir} \
-    ${systemd_unitdir}/network/ \
+    ${systemd_system_unitdir}    \
+    ${systemd_unitdir}/network/  \  
 "

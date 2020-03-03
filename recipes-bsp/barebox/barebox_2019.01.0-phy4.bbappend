@@ -22,6 +22,24 @@ python do_env_append_mx6ul(){
     env_add(d, "nv/dev.eth0.linux.devname", "eth0")
     env_add(d, "nv/dhcp.vendor_id", "evologics")
 
+
+    env_add(d, "bin/image_update_eth",
+    """#!/bin/sh
+    echo "Flashing sd image from ethernet"
+    detect mmc1
+    ifup eth1
+    cp -v /mnt/tftp/commod-minimal-image-mx6ul-comm-module.sdcard /dev/mmc1
+    """)
+
+    env_add(d, "bin/barebox_update_eth",
+    """#!/bin/sh
+    echo "Flashing barebox from ethernet"
+    detect mmc1
+    ifup eth1
+    barebox_update -t mmc1 /mnt/tftp/barebox.bin
+    """)
+
+
     env_rm(d, "boot/system0")
     env_rm(d, "boot/system1")
     env_rm(d, "nv/bootchooser.targets")

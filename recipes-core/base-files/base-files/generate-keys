@@ -1,0 +1,27 @@
+#!/bin/sh
+#init script to create ssh keys 
+
+
+#remount rootfs as read write
+mount -o remount,rw /
+
+#location to save the files to.
+RSA_LOCATION=/etc/ssh/rsa
+ECDSA_LOCATION=/etc/ssh/ecdsa
+ED25519_LOCATION=/etc/ssh/ed25519
+
+
+#generate rsa key
+ssh-keygen -q -f $RSA_LOCATION -N '' -t rsa
+
+
+#generate ecdsa key
+ssh-keygen -q -f $ECDSA_LOCATION -N '' -t ecdsa
+
+
+#generate ed25519 key
+ssh-keygen -q -f $ED25519_LOCATION -N '' -t ed25519
+
+
+#remount rootfs as read-only
+mount -o remount,ro /

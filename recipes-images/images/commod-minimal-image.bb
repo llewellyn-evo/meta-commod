@@ -13,17 +13,18 @@ EXTRA_IMAGE_FEATURES += "read-only-rootfs"
 
 IMAGE_INSTALL += "\
      packagegroup-base 		\
-     packagegroup-3g            \
-     bridge-utils 		\
+     packagegroup-3g          \
+     bridge-utils 		     \
+     rng-tools                \
      pps-tools 			\
-     ptpd 			\
+     ptpd 			     \
      net-tools 			\
      dune 			\
      chrony			\ 
      gpsd 			\
      monit			\
      screen 			\
-     opkg			\
+     opkg			     \
      socat 			\
      erlang 			\
      erlang-sasl 		\
