@@ -22,7 +22,6 @@ IMAGE_INSTALL += "\
      dune 			\
      chrony			\ 
      gpsd 			\
-     monit			\
      screen 			\
      opkg			     \
      socat 			\

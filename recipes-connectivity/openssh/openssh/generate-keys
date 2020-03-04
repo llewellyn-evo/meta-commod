@@ -1,0 +1,55 @@
+#!/bin/sh
+#init script to create ssh keys 
+
+#location to save the files to.
+RSA_LOCATION=/etc/ssh/rsa
+ECDSA_LOCATION=/etc/ssh/ecdsa
+ED25519_LOCATION=/etc/ssh/ed25519
+
+
+#location for sym link
+RSA_SYMLINK=/var/run/ssh/ssh_host_rsa_key
+ECDSA_SYMLINK=/var/run/ssh/ssh_host_ecdsa_key
+ED25519_SYMLINK=/var/run/ssh/ssh_host_ed25519_key
+
+CERT=/var/run/ssh
+
+if [[ -f "$RSA_LOCATION" ]] && [[ -f "$ECDSA_LOCATION" ]] && [[ -f "$ED25519_LOCATION" ]]; then
+    echo "All Keys Exist"
+
+else 
+
+    #remount rootfs as read write
+        mount -o remount,rw /
+
+
+        if [ ! -f "$RSA_LOCATION" ]; then
+                #generate rsa key
+                ssh-keygen -q -f $RSA_LOCATION -N '' -t rsa
+        fi
+
+
+        if [ ! -f "$ED25519_LOCATION" ]; then
+                #generate ed25519 key
+                ssh-keygen -q -f $ED25519_LOCATION -N '' -t ed25519
+        fi
+
+
+        if [ ! -f "$ECDSA_LOCATION" ]; then
+                #generate ecdsa key
+                ssh-keygen -q -f $ECDSA_LOCATION -N '' -t ecdsa
+        fi
+
+        #remount rootfs as read-only
+        mount -o remount,ro /
+fi
+
+mkdir $CERT
+ln -s $RSA_LOCATION $RSA_SYMLINK
+ln -s $ECDSA_LOCATION $ECDSA_SYMLINK
+ln -s $ED25519_LOCATION $ED25519_SYMLINK
+
+
+
+
+
