@@ -40,6 +40,11 @@ python do_env_append_mx6ul(){
     """)
 
 
+    env_add(d, "env/config",
+    """#!/bin/sh
+    global.autoboot_timeout=1
+    """)
+
     env_rm(d, "boot/system0")
     env_rm(d, "boot/system1")
     env_rm(d, "nv/bootchooser.targets")
