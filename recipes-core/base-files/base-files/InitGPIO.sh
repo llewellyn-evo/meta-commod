@@ -33,7 +33,7 @@ echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
 echo 0 > /sys/class/pwm/pwmchip1/export
 echo 3000000000 > /sys/class/pwm/pwmchip1/pwm0/period
 echo 300000000 > /sys/class/pwm/pwmchip1/pwm0/duty_cycle
-echo 1 > /sys/class/pwm/pwmchip1/pwm0/enable
+echo 0 > /sys/class/pwm/pwmchip1/pwm0/enable
 
 
 #Initialising BITE input from Atomic Clock
@@ -47,4 +47,3 @@ echo 0 > /sys/class/gpio/gpio130/value
 
 
 stty -F /dev/ttymxc6 115200 raw
-echo "A" > /dev/ttymxc6
