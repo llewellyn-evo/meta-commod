@@ -23,6 +23,7 @@ SRC_URI = " \
 
 SYSTEMD_SERVICE_${PN} = " \
     ${@bb.utils.contains("MACHINE_FEATURES", "can", "can0.service", "", d)} \
+    InitGPIO.service                                                        \
 "
 
 do_install() {
