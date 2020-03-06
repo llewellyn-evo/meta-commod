@@ -47,3 +47,5 @@ echo 0 > /sys/class/gpio/gpio130/value
 
 
 stty -F /dev/ttymxc6 115200 raw
+sleep 0.5
+echo "A" > /dev/ttymxc6 
