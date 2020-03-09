@@ -32,7 +32,7 @@ sleep 4
 
 echo "Connecting to the Internet"
 
-echo -e "AT+CGACT=1,1\r\n"
+echo -e "AT+CGACT=1,1\r\n" > /dev/ttyAMA0
 
 sleep 2
 
