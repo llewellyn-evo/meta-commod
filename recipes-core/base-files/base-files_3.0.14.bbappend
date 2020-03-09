@@ -3,6 +3,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 SRC_URI_append = "file://print_issue.sh \
 		  file://remount-rootfs \
 		  file://InitGPIO.sh    \
+		  file://init-gsm		\
 "
 dirs755_append = " ${sysconfdir}/profile.d"
 
@@ -11,6 +12,8 @@ do_install_append () {
 	install -d ${D}/mnt/storage
 	install -m 0777 ${WORKDIR}/remount-rootfs ${D}/bin/remount-rootfs
 	install -m 0777 ${WORKDIR}/InitGPIO.sh ${D}/usr/bin/InitGPIO.sh
+	install -m 0777 ${WORKDIR}/init-gsm ${D}/bin/init-gsm
+
 }
 
 do_install_basefilesissue_append() {

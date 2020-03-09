@@ -1,6 +1,8 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://0001-enabled-fec2.patch"
+SRC_URI += "file://0001-enabled-fec2.patch \
+            file://0001-Changed-hostname.patch \
+            "
 
 
 #Currently there is no rauc support for eMMC

@@ -12,18 +12,40 @@ EXTRA_IMAGE_FEATURES += "read-only-rootfs"
 
 
 IMAGE_INSTALL += "\
-     packagegroup-base 		\
-     packagegroup-3g          \
-     bridge-utils 		     \
-     rng-tools                \
-     pps-tools 			\
-     ptpd 			     \
-     net-tools 			\
+     packagegroup-base 	\
+     packagegroup-3g     \
+     bridge-utils 		\
+     rng-tools           \
+     pps-tools 		\
+     ptpd 			\
+     net-tools 		\
      dune 			\
      chrony			\ 
      gpsd 			\
      screen 			\
      opkg			     \
+     tmux                \
+     netcat-openbsd      \
+     tcl                 \
+     expect              \
+     rsync               \
+     tar                 \
+     can-utils           \
+     i2c-tools           \
+     daemonize           \
+     ltrace              \
+     strace              \
+     file                \
+     rsync               \
+     gzip                \
+     util-linux          \
+     fuse-exfat          \
+     bash                \
+     e2fsprogs           \
+     exfat-utils         \
+     grep                \
+     coreutils           \
+     procps              \
      socat 			\
      erlang 			\
      erlang-sasl 		\
@@ -35,9 +57,11 @@ IMAGE_INSTALL += "\
      ethtool			\
      fuse-exfat 		\
      bash 			\
-     e2fsprogs 			\
+     e2fsprogs 		\
      exfat-utils		\
      iproute2			\
+     dhcp-client         \
+     iputils                \
 "
 
 IMAGE_INSTALL_remove = "packagegroup-update"
