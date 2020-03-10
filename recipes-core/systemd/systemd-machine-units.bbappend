@@ -19,7 +19,7 @@ SRC_URI = " \
     file://Bridge.netdev \
     ${@bb.utils.contains("MACHINE_FEATURES", "can", "file://can0.service", "", d)} \
     file://InitGPIO.service \
-    file://10-wwan0.network \
+    file://10-usb0.network \
 "
 
 SYSTEMD_SERVICE_${PN} = " \

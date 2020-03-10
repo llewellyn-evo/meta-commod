@@ -48,4 +48,14 @@ echo 0 > /sys/class/gpio/gpio130/value
 
 stty -F /dev/ttymxc6 115200 raw
 sleep 0.5
-echo "A" > /dev/ttymxc6 
+#turn on GPS
+echo "G" > /dev/ttymxc6 
+#turn on Wifi
+sleep 0.2
+echo "W" > /dev/ttymxc6 
+#turn on Xbee
+sleep 0.2
+echo "X" > /dev/ttymxc6
+#turn on Atomic Clock
+sleep 0.2
+echo "C" > /dev/ttymxc6

@@ -1,42 +1,23 @@
-
 echo "****************************************************"
 echo "******Initialising GSM Modem on /dev/ttyACM0********"
 echo "****************************************************"
 
-stty -F /dev/ttyACM0 115200 raw
-
-echo "Setting the Modem in Airplane mode"
-
-echo -e "AT+CFUN=4\r\n" > /dev/ttyACM0
-
-
-sleep 2
-
-echo "Define a PDP context with preferred APN"
-
-echo -e "AT+CGDCONT=1,\"IP\",\"web.vodafone.de\"\r\n" > /dev/ttyACM0
-
-sleep 1
-
-echo "Define the initial PDP context with preferred APN"
-
-echo -e "AT+UCGDFLT=1,\"IP\",\"web.vodafone.de\"\r\n" > /dev/ttyACM0
-
-sleep 1
-
-echo "Set the module to full functionality"
-
-echo -e "AT+CFUN=1\r\n" > /dev/ttyACM0
-
-sleep 4
-
-echo "Connecting to the Internet"
-
-echo -e "AT+CGACT=1,1\r\n" > /dev/ttyAMA0
-
-sleep 2
-
-
+echo "Scanning available Modems"
+mmcli -S                                                  
+                                                          
+echo "listing Available Modems"                           
+echo                                                      
+echo                                                      
+                                                          
+mmcli -L                                                  
+sleep 0.5                                                 
+                                                          
+echo "Connecting with apn web.vodafone.de"                
+                                                                    
+mmcli -m 0 --simple-connect="apn=web.vodafone.de"         
+                                                          
 echo "***************************************************"
 echo "*************Initialization Done*******************"
+echo "***************************************************"
+
 echo "***************************************************"

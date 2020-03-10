@@ -1,5 +1,5 @@
 [Match]
-Name=wwan0
+Name=usb0
 
 [Network]
 DHCP=ipv4
