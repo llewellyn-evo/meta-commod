@@ -15,11 +15,11 @@ IMAGE_INSTALL += "                      \
      packagegroup-base 	               \
      packagegroup-3g                    \
      packagegroup-core-buildessential   \
-     bridge-utils 		               \
+     packagegroup-userland              \
+     packagegroup-erlang                \
+     packagegroup-hw-utils              \
      rng-tools                          \
-     pps-tools 		               \
      ptpd 			               \
-     net-tools 		               \
      dune 			               \
      chrony			               \ 
      gpsd 			               \
@@ -29,15 +29,10 @@ IMAGE_INSTALL += "                      \
      netcat-openbsd                     \
      tcl                                \
      expect                             \
-     rsync                              \
      tar                                \
-     can-utils                          \
-     i2c-tools                          \
      daemonize                          \
      ltrace                             \
-     strace                             \
      file                               \
-     rsync                              \
      gzip                               \
      util-linux                         \
      fuse-exfat                         \
@@ -48,21 +43,12 @@ IMAGE_INSTALL += "                      \
      coreutils                          \
      procps                             \
      socat 			               \
-     erlang 			               \
-     erlang-sasl 		               \
-     erlang-stdlib 		               \
-     erlang-kernel 		               \
-     erlang-erts 		               \
-     erlang-crypto		               \
-     usbutils			               \
-     ethtool			               \
      fuse-exfat 		               \
      bash 			               \
      e2fsprogs 		               \
      exfat-utils		               \
      iproute2			               \
      dhcp-client                        \
-     iputils                            \
      vim                                \
      git                                \
      ckermit                            \
@@ -72,4 +58,5 @@ IMAGE_INSTALL += "                      \
 IMAGE_INSTALL_remove = "                \
      packagegroup-update                \
      ofono                              \
+     ofono-tests                        \
 "
