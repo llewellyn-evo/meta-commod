@@ -66,6 +66,7 @@ IMAGE_INSTALL += "                      \
      vim                                \
      git                                \
      ckermit                            \
+     python                             \
 "
 
 IMAGE_INSTALL_remove = "                \
