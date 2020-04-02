@@ -53,6 +53,9 @@ IMAGE_INSTALL += "                      \
      git                                \
      ckermit                            \
      python                             \
+     tcpdump                            \
+     iptables                           \
+     ebtables                           \
 "
 
 IMAGE_INSTALL_remove = "                \
